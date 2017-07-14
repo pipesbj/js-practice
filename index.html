@@ -13,22 +13,65 @@
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css" type="text/css"/>
-
+  <link rel="shortcut icon" href="#">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script src='js/script.js'></script>	
+ <!--  <script src='js/tableObject-emp.js'></script>	-->
 </head>
 
 
 <div class="jumbotron text-center">
     <div class="container">
-          <img class="img-rounded" src="images/no.jpg" alt="" width="275" height="225"> 
+          <img src="images/no.jpg" class="img" alt="" width="275" height="225"> 
         </div>
     
   <h1>TEST WEBSITE </h1>
   <p>some text</p> 
 </div>
   
+<form id="tableForm1">
+    <input type="text" id="namefield" placeholder="name...">
+    <input type="text" id="dobfield" placeholder="dob...">
+    <input type="text" id="agefield" placeholder="age...">
+    <input type="submit" id="submitbutton" value="Insert">
+</form>
+
+<script type="text/javascript">
+$("#submitbutton").click(function(){
+ 
+    var name = $("#namefield").val();
+    var dob = $('#dobfield').val();
+    var age = $('#agefield').val();
+ 
+        var tr = "<tr>\
+        <td>" + name + "</td>\n\
+        <td>" + dob + "</td>\n\
+        <td>" + age + "</td></tr>";
+    
+    $("#employeeTable tbody").append(tr);
+ //   $employeeTable.bootstrapTable('append', name, dob, age);
+});
+
+</script>
+
+<div class="container">
+    <div class="bootstrap-table">
+    <table class="table table-striped" id="employeeTable">
+        <thead>
+            <tr>
+            <th>name</th>
+            <th>dob</th>
+            <th>age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+
     <div class='navbar navbar-fixed-bottom'>
         <div class="row">
             <div class="col-sm-2">
