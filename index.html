@@ -24,29 +24,6 @@
 <body>
     <script>
     
-    
-//    $(window).load(function(){
-//$(function () {
-//
-//    $("#submitbutton").click(function(){
-// 
-//    var name = $("#namefield").val();
-//    var dob = $('#dobfield').val();
-//    var age = $('#agefield').val();
-// 
-//        var tr = "<tr id=r" + i + ">\
-//        <td>" + name + "</td>\n\
-//        <td>" + dob + "</td>\n\
-//        <td>" + age + "</td></tr>";
-//        i++;
-//    $("#employeeTable > tbody").append(tr);
-// //   $employeeTable.bootstrapTable('append', name, dob, age);
-//});
-//});
-//});
-    
-    
-    
 $(document).ready(function(){
     $("#submitbutton").click(function(){
  
@@ -54,18 +31,24 @@ $(document).ready(function(){
     var dob = $('#dobfield').val();
     var age = $('#agefield').val();
  
+    var re = /^[0-9]*$/g; //regex for age
+    var pre =   /^[0-9]*$/g;        //regex for dob
+ 
+    if ((age < 1 || age > 99) || !re.test(age)){
+        alert("Invalid age input.");
+        }
+    else if (!pre.test(dob) || dob.length > 8){
+        alert("Invalid dob input");
+    }
+    else{
         var tr = "<tr id=r" + i + ">\
         <td>" + name + "</td>\n\
         <td>" + dob + "</td>\n\
         <td>" + age + "</td></tr>";
         i++;
-    $("table tbody").append(tr);
-//    $employeeTable.bootstrapTable('insertRow',{
-//        index: 1,
-//        row: {dn: name, 
-//              dd: dob, 
-//              da: age}});
-});
+        $("table tbody").append(tr);
+    }
+    });
 });
 </script>
     
