@@ -16,9 +16,61 @@
   <link rel="shortcut icon" href="#">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <!--  <script src='js/tableObject-emp.js'></script>	-->
+ <!--  <script src='js/tableObject-emp.js'></script> -->
 </head>
 
+
+
+<body>
+    <script>
+    
+    
+//    $(window).load(function(){
+//$(function () {
+//
+//    $("#submitbutton").click(function(){
+// 
+//    var name = $("#namefield").val();
+//    var dob = $('#dobfield').val();
+//    var age = $('#agefield').val();
+// 
+//        var tr = "<tr id=r" + i + ">\
+//        <td>" + name + "</td>\n\
+//        <td>" + dob + "</td>\n\
+//        <td>" + age + "</td></tr>";
+//        i++;
+//    $("#employeeTable > tbody").append(tr);
+// //   $employeeTable.bootstrapTable('append', name, dob, age);
+//});
+//});
+//});
+    
+    
+    
+$(document).ready(function(){
+    $("#submitbutton").click(function(){
+ 
+    var name = $("#namefield").val();
+    var dob = $('#dobfield').val();
+    var age = $('#agefield').val();
+ 
+        var tr = "<tr id=r" + i + ">\
+        <td>" + name + "</td>\n\
+        <td>" + dob + "</td>\n\
+        <td>" + age + "</td></tr>";
+        i++;
+    $("table tbody").append(tr);
+//    $employeeTable.bootstrapTable('insertRow',{
+//        index: 1,
+//        row: {dn: name, 
+//              dd: dob, 
+//              da: age}});
+});
+});
+</script>
+    
+    
+<script>var i=1</script>
 
 <div class="jumbotron text-center">
     <div class="container">
@@ -30,42 +82,26 @@
 </div>
   
 <form id="tableForm1">
-    <input type="text" id="namefield" placeholder="name...">
-    <input type="text" id="dobfield" placeholder="dob...">
-    <input type="text" id="agefield" placeholder="age...">
-    <input type="submit" id="submitbutton" value="Insert">
+    <input type="text" id="namefield" value="joe" placeholder="name...">
+    <input type="text" id="dobfield" value="02111938" placeholder="dob...">
+    <input type="text" id="agefield" value="35" placeholder="age...">
+    <input type="button" id="submitbutton" value="Insert">
 </form>
 
-<script type="text/javascript">
-$("#submitbutton").click(function(){
- 
-    var name = $("#namefield").val();
-    var dob = $('#dobfield').val();
-    var age = $('#agefield').val();
- 
-        var tr = "<tr>\
-        <td>" + name + "</td>\n\
-        <td>" + dob + "</td>\n\
-        <td>" + age + "</td></tr>";
-    
-    $("#employeeTable tbody").append(tr);
- //   $employeeTable.bootstrapTable('append', name, dob, age);
-});
 
-</script>
 
 <div class="container">
     <div class="bootstrap-table">
     <table class="table table-striped" id="employeeTable">
         <thead>
             <tr>
-            <th>name</th>
-            <th>dob</th>
-            <th>age</th>
+            <th data-field="dn">name</th>
+            <th data-field="dd">dob</th>
+            <th data-field="da">age</th>
             </tr>
         </thead>
         <tbody>
-            <tr></tr>
+            <tr id="r0"></tr>
         </tbody>
     </table>
     </div>
@@ -82,5 +118,5 @@ $("#submitbutton").click(function(){
             </div>
         </div>
     </div>
-
+</body>
 </html>
