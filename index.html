@@ -16,12 +16,12 @@
   <link rel="shortcut icon" href="#">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <!--  <script src='js/tableObject-emp.js'></script> -->
 </head>
-
-
-
 <body>
+    
+    <!-- i is the count of rows. i is one because a dummy tuple is hardcoded-->
+    <script>var i=1;</script>
+    
     <script>
     
 $(document).ready(function(){
@@ -42,18 +42,48 @@ $(document).ready(function(){
     }
     else{
         var tr = "<tr id=r" + i + ">\
-        <td>" + name + "</td>\n\
-        <td>" + dob + "</td>\n\
-        <td>" + age + "</td></tr>";
-        i++;
-        $("table tbody").append(tr);
+        <td id=" + "dn" + ">" + name + "</td>\n\
+        <td id=" + "dd" + ">" + dob + "</td>\n\
+        <td id=" + "da" + ">" + age + "</td>\n\
+        <td id=" + "index" + ">" + i + "</td></tr>";
+            
+       
+        if(checkDupe(name, dob, age)){
+            $("table tbody").append(tr);
+            i++;
+        }
+        else
+            alert("duplicate tuple! Each entry should be unique.");
     }
-    });
-});
+    });//submitbutton
+});//document ready
+
+function checkDupe(name, dob, age){
+    //if table has no tuples
+    if (i === 0){
+        console.log("i is zero");
+        return false;
+    }
+    var n, d, a;
+    
+    n = document.getElementById("employeeTable").rows[i].cells.namedItem("dn").innerHTML;
+    d = document.getElementById("employeeTable").rows[i].cells.namedItem("dd").innerHTML;
+    a = document.getElementById("employeeTable").rows[i].cells.namedItem("da").innerHTML;
+    
+    var x = document.getElementsByTagName("tr");
+    console.log(x[i].rowIndex);
+    
+    
+    if (name == n || dob == d || age == a)
+        return false;
+    else
+        return true;
+    
+    console.log("testing against: " + n + " " + d + " " + a + " num " + i
+            +"\n" + "row to check: " + (i - 1));
+}
+
 </script>
-    
-    
-<script>var i=1</script>
 
 <div class="jumbotron text-center">
     <div class="container">
@@ -78,13 +108,19 @@ $(document).ready(function(){
     <table class="table table-striped" id="employeeTable">
         <thead>
             <tr>
-            <th data-field="dn">name</th>
-            <th data-field="dd">dob</th>
-            <th data-field="da">age</th>
+            <th id="hdn">name</th>
+            <th id="hdd">dob</th>
+            <th id="hda">age</th>
+            <th id="hdi">n</th>
             </tr>
         </thead>
         <tbody>
-            <tr id="r0"></tr>
+            <tr id="r0" >
+                <td id="dn"> bob </td>
+                <td id="dd"> 12201960 </td>
+                <td id="da"> 89</td>
+                <td id="index"> 0 </td>
+            </tr>
         </tbody>
     </table>
     </div>
@@ -92,7 +128,7 @@ $(document).ready(function(){
 
 
     <div class='navbar navbar-fixed-bottom'>
-        <div class="row">
+        <div class="sig">
             <div class="col-sm-2">
                 <a href="http://www.github.com/pipesbj" target="_blank">Github</a>
             </div>
