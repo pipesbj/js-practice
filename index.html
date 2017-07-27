@@ -22,7 +22,7 @@
     <!-- i is the count of rows. i is one because a dummy tuple is hardcoded-->
     <script>var i=1;</script>
     
-    <script>
+<script>
     
 $(document).ready(function(){
     $("#submitbutton").click(function(){
@@ -53,7 +53,7 @@ $(document).ready(function(){
             i++;
         }
         else
-            alert("duplicate tuple! Each entry should be unique.");
+            alert("Duplicate tuple! Each entry should be unique.");
     }
     });//submitbutton
 });//document ready
@@ -66,15 +66,13 @@ function checkDupe(name, dob, age){
     }
     var n, d, a;
     
+    //get each data field.
     n = document.getElementById("employeeTable").rows[i].cells.namedItem("dn").innerHTML;
     d = document.getElementById("employeeTable").rows[i].cells.namedItem("dd").innerHTML;
     a = document.getElementById("employeeTable").rows[i].cells.namedItem("da").innerHTML;
-    
-    var x = document.getElementsByTagName("tr");
-    console.log(x[i].rowIndex);
-    
-    
-    if (name == n || dob == d || age == a)
+  
+  
+    if (name === n || dob === d || age === a)
         return false;
     else
         return true;
@@ -87,14 +85,14 @@ function checkDupe(name, dob, age){
 
 <div class="jumbotron text-center">
     <div class="container">
-          <img src="images/no.jpg" class="img" alt="" width="275" height="225"> 
+          <img src="images/no.jpg" class="img-circle" alt="" width="200" height="175"> 
         </div>
     
   <h1>TEST WEBSITE </h1>
   <p>some text</p> 
 </div>
   
-<form id="tableForm1">
+<form id="tableForm1" class="centerform">
     <input type="text" id="namefield" value="joe" placeholder="name...">
     <input type="text" id="dobfield" value="02111938" placeholder="dob...">
     <input type="text" id="agefield" value="35" placeholder="age...">
@@ -129,12 +127,8 @@ function checkDupe(name, dob, age){
 
     <div class='navbar navbar-fixed-bottom'>
         <div class="sig">
-            <div class="col-sm-2">
-                <a href="http://www.github.com/pipesbj" target="_blank">Github</a>
-            </div>
-            <div class="col-sm-2">
+            <a href="http://www.github.com/pipesbj" target="_blank">Github</a>
             <a href="mailto:pipesbj@gmail.com">Email</a>
-            </div>
         </div>
     </div>
 </body>
